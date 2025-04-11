@@ -3,9 +3,6 @@ import Image from "next/image";
 
 export default function Home() {
   return (
-    <div className="">
-      <main className="row-start-1 row-end-2 py-52">Dette er main på app</main>
-      
-    </div>
+    <main className="row-start-2 row-end-3 py-52">Dette er main på app</main>
   );
 }
