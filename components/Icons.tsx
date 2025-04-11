@@ -1,13 +1,8 @@
-import { cn } from "@/lib/utils";
-import { ComponentProps } from "react";
+import { LucideProps } from "lucide-react";
 
-export function Logo({ className }: ComponentProps<"svg">) {
+export function Logo({ ...props }: LucideProps) {
   return (
-    <svg
-      xmlns="http://www.w3.org/2000/svg"
-      viewBox="0 0 256 256"
-      className={cn("h-6 w-6", className)}
-    >
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256" {...props}>
       <rect width="256" height="256" fill="none"></rect>
       <line
         x1="208"
@@ -34,4 +29,3 @@ export function Logo({ className }: ComponentProps<"svg">) {
     </svg>
   );
 }
-

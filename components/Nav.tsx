@@ -11,14 +11,15 @@ import {
 } from "./ui/dropdown-menu";
 import { Logo } from "./Icons";
 import { Menu } from "lucide-react";
+import { UserAvatar } from "./user-avatar";
 
 export default function Nav({ className }: ComponentProps<"nav">) {
   return (
     <nav className={cn("w-full ", className)}>
       <ul className="flex flex-wrap items-center gap-x-6 text-foreground text-xl py-4">
-        <li className=" mr-auto">
+        <li className=" ">
           <Link href={"/app"} className="inline-flex gap-1 font-semibold ">
-            <Logo /> BirthdayReminder
+            <Logo className="size-6" /> BirthdayReminder
           </Link>
         </li>
         <li className=" hidden md:flex ">
@@ -27,16 +28,28 @@ export default function Nav({ className }: ComponentProps<"nav">) {
         <li className=" hidden md:flex ">
           <Link href={"/app"}>Notifications</Link>
         </li>
-        <li className="hidden md:flex ml-auto ">
-          <Link href={"/app"}>Settings</Link>
-        </li>
-        <li className="hidden md:flex ">
-          <Link href={"/app"}>Profile</Link>
+
+        <li className="hidden md:flex ml-auto">
+          <DropdownMenu>
+            <DropdownMenuTrigger className="cursor-pointer">
+              <UserAvatar alt="user image" username="Torkel" image={""} />
+            </DropdownMenuTrigger>
+            <DropdownMenuContent>
+              <DropdownMenuItem>
+                <Link href={"/app"}>Profile</Link>
+              </DropdownMenuItem>
+              <DropdownMenuItem>
+                <Link href={"/app"}>Settings</Link>
+              </DropdownMenuItem>
+              <DropdownMenuSeparator />
+              <DropdownMenuItem>Log out</DropdownMenuItem>
+            </DropdownMenuContent>
+          </DropdownMenu>
         </li>
         <li className="block md:hidden ml-auto ">
           <DropdownMenu>
             <DropdownMenuTrigger className="cursor-pointer">
-              <Menu className="w-6 h-6" />
+              <Menu className="size-6" />
             </DropdownMenuTrigger>
             <DropdownMenuContent>
               {/* <DropdownMenuLabel>My Account</DropdownMenuLabel> */}
@@ -45,6 +58,8 @@ export default function Nav({ className }: ComponentProps<"nav">) {
               <DropdownMenuItem>Notifications</DropdownMenuItem>
               <DropdownMenuItem>Settings</DropdownMenuItem>
               <DropdownMenuItem>Profile</DropdownMenuItem>
+              <DropdownMenuSeparator />
+              <DropdownMenuItem>Log out</DropdownMenuItem>
             </DropdownMenuContent>
           </DropdownMenu>
         </li>
