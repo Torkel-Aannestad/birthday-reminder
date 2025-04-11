@@ -13,11 +13,10 @@ export default function Layout({
   children: React.ReactNode;
 }>) {
   return (
-    <div>
-      <Container>
-        <Nav />
-      </Container>
+    <Container className="grid grid-rows-[auto_1fr_40px] ">
+      <Nav className="row-span-1" />
       {children}
-    </div>
+      <footer className="">footer</footer>
+    </Container>
   );
 }
