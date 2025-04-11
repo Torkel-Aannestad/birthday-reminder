@@ -22,11 +22,11 @@ export default function Nav({ className }: ComponentProps<"nav">) {
             <Logo className="size-6" /> BirthdayReminder
           </Link>
         </li>
-        <li className=" hidden md:flex ">
+        {/* <li className=" hidden md:flex ">
           <Link href={"/app"}>Contacts</Link>
-        </li>
+        </li> */}
         <li className=" hidden md:flex ">
-          <Link href={"/app"}>Notifications</Link>
+          <Link href={"/app/settings/notifications"}>Notifications</Link>
         </li>
 
         <li className="hidden md:flex ml-auto">
@@ -36,10 +36,14 @@ export default function Nav({ className }: ComponentProps<"nav">) {
             </DropdownMenuTrigger>
             <DropdownMenuContent>
               <DropdownMenuItem>
-                <Link href={"/app"}>Profile</Link>
+                <Link className="w-full" href={"/app/profile"}>
+                  Profile
+                </Link>
               </DropdownMenuItem>
               <DropdownMenuItem>
-                <Link href={"/app"}>Settings</Link>
+                <Link className="w-full" href={"/app/settings"}>
+                  Settings
+                </Link>
               </DropdownMenuItem>
               <DropdownMenuSeparator />
               <DropdownMenuItem>Log out</DropdownMenuItem>
@@ -52,12 +56,22 @@ export default function Nav({ className }: ComponentProps<"nav">) {
               <Menu className="size-6" />
             </DropdownMenuTrigger>
             <DropdownMenuContent>
-              {/* <DropdownMenuLabel>My Account</DropdownMenuLabel> */}
-              {/* <DropdownMenuSeparator /> */}
-              <DropdownMenuItem>Contacts</DropdownMenuItem>
-              <DropdownMenuItem>Notifications</DropdownMenuItem>
-              <DropdownMenuItem>Settings</DropdownMenuItem>
-              <DropdownMenuItem>Profile</DropdownMenuItem>
+              <DropdownMenuItem>
+                <Link className="w-full" href={"/app/settings/notifications"}>
+                  Notifications
+                </Link>
+              </DropdownMenuItem>
+              <DropdownMenuItem>
+                {" "}
+                <Link className="w-full" href={"/app/settings"}>
+                  Settings
+                </Link>
+              </DropdownMenuItem>
+              <DropdownMenuItem>
+                <Link className="w-full" href={"/app/profile"}>
+                  Profile
+                </Link>
+              </DropdownMenuItem>
               <DropdownMenuSeparator />
               <DropdownMenuItem>Log out</DropdownMenuItem>
             </DropdownMenuContent>
