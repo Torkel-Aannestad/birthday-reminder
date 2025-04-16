@@ -1,4 +1,4 @@
-import TopSection from "@/components/CommonTopSection";
+import TopSection from "@/components/PageHeader";
 import ContantForm from "@/components/ContactForm";
 
 export default function ContactCreate() {

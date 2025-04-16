@@ -7,7 +7,7 @@ type TopSectionProps = ComponentProps<"div"> & {
   subTitle?: string;
 };
 
-export default function TopSection({
+export default function PageHeader({
   title,
   subTitle,
   className,
@@ -20,7 +20,7 @@ export default function TopSection({
       </h1>
       {subTitle && <p className="text-muted-foreground">{subTitle}</p>}
       {children}
-      <Separator />
+      {/* <Separator /> */}
     </div>
   );
 }
