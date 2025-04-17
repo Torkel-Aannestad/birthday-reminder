@@ -111,7 +111,7 @@ function ContactCard({ id, firstname, lastname, dateOfBirth }: Contact) {
         <div className="block md:hidden ml-auto mt-auto mb-auto">
           <Link
             href={`/app/contacts/${id}`}
-            className={cn(buttonVariants({ variant: "ghost", size: "sm" }))}
+            className={cn(buttonVariants({ variant: "link", size: "sm" }))}
           >
             View details
           </Link>{" "}

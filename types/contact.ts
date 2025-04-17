@@ -1,3 +1,5 @@
+import * as z from "zod";
+
 export type Contact = {
   id: string;
   firstname: string;
@@ -5,3 +7,4 @@ export type Contact = {
   dateOfBirth: string;
 };
 export type Contacts = Contact[];
+
