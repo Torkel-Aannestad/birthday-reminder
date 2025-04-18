@@ -11,7 +11,7 @@ import {
 } from "./ui/dropdown-menu";
 import { Logo } from "./Icons";
 import { Menu } from "lucide-react";
-import { UserAvatar } from "./user-avatar";
+import { UserAvatar } from "./UserAvatar";
 
 export default function Nav({ className }: ComponentProps<"nav">) {
   return (

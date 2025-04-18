@@ -1,5 +1,5 @@
 import TopSection from "@/components/PageHeader";
-import ContantForm from "@/app/app/contacts/create/_components/ContactForm";
+import ContantForm from "./_components/ContactForm";
 
 export default function ContactCreate() {
   return (

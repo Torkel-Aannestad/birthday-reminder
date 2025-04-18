@@ -3,11 +3,18 @@ import * as z from "zod";
 export const contactSchema = z.interface({
   firstname: z
     .string()
-    .min(3, { error: "Minimum 3 characters" })
+    .nonempty({ error: "First name cannot be empty" })
+    .min(3, { error: "First name must be at least 3 characters" })
     .max(255, { error: "Maximum 255 characters" }),
-  lastname: z.string().max(255, { error: "Maximum 255 characters" }),
-  day: z.string().length(2),
-  month: z.string().length(2),
+  lastname: z.string().max(255, { error: "Maximum 255 characters" }).optional(),
+  day: z
+    .string()
+    .nonempty({ error: "Day cannot be empty" })
+    .length(2, { error: "Wrong day value" }),
+  month: z
+    .string()
+    .nonempty({ error: "Month cannot be empty" })
+    .length(2, { error: "Wrong day value" }),
   year: z.string().length(4).optional(),
 });
 
