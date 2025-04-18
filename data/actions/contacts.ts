@@ -8,7 +8,7 @@ import {
 import * as z from "zod";
 
 type ContactFormState = {
-  data: ContactSchemaType;
+  data: ContactSchemaType | null;
   errors: ContactSchemaErrorType | null;
 };
 

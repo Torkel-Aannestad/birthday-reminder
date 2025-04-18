@@ -28,10 +28,10 @@ export default function ContantForm({ className }: ComponentProps<"div">) {
     data: {
       firstname: "",
       lastname: "",
-      day: "01",
-      month: "01",
-      year: "1992",
-    } as ContactSchemaType,
+      day: "",
+      month: "",
+      year: "",
+    },
     errors: null,
   };
 
@@ -49,7 +49,7 @@ export default function ContantForm({ className }: ComponentProps<"div">) {
           <Input
             type="text"
             name="firstname"
-            defaultValue={state?.data?.firstname}
+            defaultValue={state?.data?.firstname ?? ""}
           />
           <span className="text-destructive">
             {state?.errors?.properties?.firstname?.errors[0]}
@@ -60,7 +60,7 @@ export default function ContantForm({ className }: ComponentProps<"div">) {
           <Input
             type="text"
             name="lastname"
-            defaultValue={state?.data?.lastname}
+            defaultValue={state?.data?.lastname ?? ""}
           />
           <span className="text-destructive">
             {state?.errors?.properties?.lastname?.errors[0]}
@@ -71,7 +71,10 @@ export default function ContantForm({ className }: ComponentProps<"div">) {
         <Label className="pb-2">Date of birth</Label>
         <div className="grid grid-cols-4 gap-x-4">
           <div className="w-full">
-            <Select name="day">
+            <Select
+              defaultValue={state?.data?.day ? state.data.day : undefined}
+              name="day"
+            >
               <SelectTrigger className="col-start-1 w-full">
                 <SelectValue placeholder="Day" />
               </SelectTrigger>
@@ -84,7 +87,10 @@ export default function ContantForm({ className }: ComponentProps<"div">) {
             </Select>
           </div>
           <div className="w-full">
-            <Select name="month">
+            <Select
+              defaultValue={state?.data?.month ? state.data.month : undefined}
+              name="month"
+            >
               <SelectTrigger className="col-start-2 w-full">
                 <SelectValue placeholder="Month" />
               </SelectTrigger>
@@ -98,7 +104,10 @@ export default function ContantForm({ className }: ComponentProps<"div">) {
           </div>
           {includeYear && (
             <div className="w-full">
-              <Select name="year">
+              <Select
+                defaultValue={includeYear ? state?.data?.month : undefined}
+                name="year"
+              >
                 <SelectTrigger className="col-start-3 w-full">
                   <SelectValue placeholder="Year" />
                 </SelectTrigger>
@@ -120,36 +129,6 @@ export default function ContantForm({ className }: ComponentProps<"div">) {
           <p className="ml-2 text-sm text-muted-foreground">Include year</p>
         </div>
       </div>
-      <div className="grid gap-2">
-        {state.errors?.errors &&
-          state.errors.errors.map((error) => {
-            return <p className="text-destructive">{error}</p>;
-          })}
-      </div>
-
-      <div className="grid gap-2">
-        <p className="text-primary">
-          {state.errors?.properties?.firstname?.errors}
-        </p>
-        <p className="text-primary">
-          {state.errors?.properties?.lastname?.errors}
-        </p>
-        <p className="text-primary">{state.errors?.properties?.day?.errors}</p>
-        <p className="text-primary">
-          {state.errors?.properties?.month?.errors}
-        </p>
-        <p className="text-primary">{state.errors?.properties?.year?.errors}</p>
-      </div>
-
-      {state?.data && (
-        <div className="grid gap-2">
-          <p>Firstname: {state?.data?.firstname}</p>
-          <p>Last: {state?.data?.lastname}</p>
-          <p>Day: {state?.data?.day}</p>
-          <p>Month: {state?.data?.month}</p>
-          <p>Year: {state?.data?.year}</p>
-        </div>
-      )}
 
       <SubmitButton isPending={isPending}>Create contact</SubmitButton>
       <Separator />
