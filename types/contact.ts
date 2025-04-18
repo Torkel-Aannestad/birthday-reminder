@@ -5,6 +5,8 @@ export type Contact = {
   firstname: string;
   lastname: string;
   dateOfBirth: string;
+  day: string;
+  month: string;
+  year: string;
 };
 export type Contacts = Contact[];
-

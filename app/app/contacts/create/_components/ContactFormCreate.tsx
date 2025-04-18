@@ -21,24 +21,10 @@ import {
 import { createContact } from "@/data/actions/contacts";
 import { cn } from "@/lib/utils";
 
-export default function ContantForm({ className }: ComponentProps<"div">) {
+export default function ContantFormCreate() {
   const [includeYear, setIncludeYear] = useState(false);
 
-  const initialState = {
-    data: {
-      firstname: "",
-      lastname: "",
-      day: "",
-      month: "",
-      year: "",
-    },
-    errors: null,
-  };
-
-  const [state, formAction, isPending] = useActionState(
-    createContact,
-    initialState
-  );
+  const [state, formAction, isPending] = useActionState(createContact, null);
 
   return (
     <form action={formAction} className="space-y-4 md:space-y-6 mb-10">
@@ -49,7 +35,8 @@ export default function ContantForm({ className }: ComponentProps<"div">) {
           <Input
             type="text"
             name="firstname"
-            defaultValue={state?.data?.firstname ?? ""}
+            placeholder="First name"
+            defaultValue={state?.data?.firstname ?? undefined}
           />
           <span className="text-destructive">
             {state?.errors?.properties?.firstname?.errors[0]}
@@ -60,7 +47,8 @@ export default function ContantForm({ className }: ComponentProps<"div">) {
           <Input
             type="text"
             name="lastname"
-            defaultValue={state?.data?.lastname ?? ""}
+            placeholder="Last name"
+            defaultValue={state?.data?.lastname ?? undefined}
           />
           <span className="text-destructive">
             {state?.errors?.properties?.lastname?.errors[0]}
@@ -105,7 +93,9 @@ export default function ContantForm({ className }: ComponentProps<"div">) {
           {includeYear && (
             <div className="w-full">
               <Select
-                defaultValue={includeYear ? state?.data?.month : undefined}
+                defaultValue={
+                  includeYear ? state?.data?.month ?? undefined : undefined
+                }
                 name="year"
               >
                 <SelectTrigger className="col-start-3 w-full">

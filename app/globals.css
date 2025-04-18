@@ -70,6 +70,7 @@
   --accent: var(--orange);
   --accent-foreground: oklch(1 0 0);
   --destructive: oklch(0.63 0.1713 25);
+  --destructive-foreground: oklch(0.141 0.005 285.823);
   --border: oklch(0.92 0.004 286.32);
   --input: oklch(0.92 0.004 286.32);
   --ring: oklch(0.705 0.015 286.067);

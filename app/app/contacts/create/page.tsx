@@ -1,10 +1,10 @@
-import TopSection from "@/components/PageHeader";
-import ContantForm from "./_components/ContactForm";
+import PageHeader from "@/components/PageHeader";
+import ContantForm from "./_components/ContactFormCreate";
 
 export default function ContactCreate() {
   return (
     <div className="">
-      <TopSection title="Create Contact" subTitle="Add a new contact" />
+      <PageHeader title="Create Contact" subTitle="Add a new contact" />
       <ContantForm />
     </div>
   );
